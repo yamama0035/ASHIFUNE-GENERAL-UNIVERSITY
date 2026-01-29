@@ -10,12 +10,18 @@
     <style>
         body {
             background-color: #f0f2f5;
+            margin: 0;
+            background-image: linear-gradient(135deg, #f0f2f5 0%, #e1e4e8 100%);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .main-content {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-image: linear-gradient(135deg, #f0f2f5 0%, #e1e4e8 100%);
+            width: 100%;
         }
         .login-card {
             background: white;
@@ -88,27 +94,30 @@
             <a href="#">English</a>
         </div>
     </div>
-    <div class="login-card">
-        <div class="login-header">
-            <h1>Ashifune Portal</h1>
-            <p>学生・教職員用 統合認証システム</p>
-        </div>
-        <form id="loginForm" onsubmit="return handleLogin(event)">
-            <div class="form-group">
-                <label for="uid">学籍番号 / 教職員ID</label>
-                <input type="text" id="uid" name="uid" placeholder="例: 24X0001">
+    
+    <div class="main-content">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Ashifune Portal</h1>
+                <p>学生・教職員用 統合認証システム</p>
             </div>
-            <div class="form-group">
-                <label for="pwd">パスワード</label>
-                <input type="password" id="pwd" name="pwd">
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="uid">学籍番号 / 教職員ID</label>
+                    <input type="text" id="uid" name="uid" placeholder="例: 24X0001">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">パスワード</label>
+                    <input type="password" id="pwd" name="pwd">
+                </div>
+                <button type="submit" class="login-btn">ログイン</button>
+            </form>
+            <div id="errorArea" class="error-msg"></div>
+            
+            <div style="margin-top: 20px; font-size: 0.8rem; color: #999;">
+                <a href="../index.html" style="color:#999; text-decoration:none;">← 大学サイトへ戻る</a><br>
+                ※定期メンテナンス中：毎週日曜 26:00-28:00
             </div>
-            <button type="submit" class="login-btn">ログイン</button>
-        </form>
-        <div id="errorArea" class="error-msg"></div>
-        
-        <div style="margin-top: 20px; font-size: 0.8rem; color: #999;">
-            <a href="../index.html" style="color:#999; text-decoration:none;">← 大学サイトへ戻る</a><br>
-            ※定期メンテナンス中：毎週日曜 26:00-28:00
         </div>
     </div>
 
