@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Web Horror Fiction Project">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認証 | Ashifune Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: linear-gradient(135deg, #f0f2f5 0%, #e1e4e8 100%);
+        }
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-header h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+        .login-header p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .login-btn:hover {
+            background: var(--primary-dark);
+        }
+        .error-msg {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="login-header">
+            <h1>Ashifune Portal</h1>
+            <p>学生・教職員用 統合認証システム</p>
+        </div>
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+            <div class="form-group">
+                <label for="uid">学籍番号 / 教職員ID</label>
+                <input type="text" id="uid" name="uid" placeholder="例: 24X0001">
+            </div>
+            <div class="form-group">
+                <label for="pwd">パスワード</label>
+                <input type="password" id="pwd" name="pwd">
+            </div>
+            <button type="submit" class="login-btn">ログイン</button>
+        </form>
+        <div id="errorArea" class="error-msg"></div>
+        
+        <div style="margin-top: 20px; font-size: 0.8rem; color: #999;">
+            <a href="../index.html" style="color:#999; text-decoration:none;">← 大学サイトへ戻る</a><br>
+            ※定期メンテナンス中：毎週日曜 26:00-28:00
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('uid').value.trim();
+            const p = document.getElementById('pwd').value.trim();
+            const err = document.getElementById('errorArea');
+            
+            // ARG LOGIC
+            // ID: 304 (Found in Library)
+            // PASS: ashifune2024 (Found in News)
+            if (u === "304" && p === "ashifune2024") {
+                window.location.href = "dashboard.html";
+            } else {
+                err.style.display = 'block';
+                err.innerText = "認証に失敗しました。IDまたはパスワードを確認してください。";
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
+

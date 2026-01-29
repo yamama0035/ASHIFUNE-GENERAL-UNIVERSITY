@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Web Horror Fiction Project">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蔵書検索 (OPAC) | 葦舟総合大学附属図書館</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .search-box-large {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            margin-bottom: 30px;
+        }
+        .search-box-large input {
+            width: 60%;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        .search-box-large button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .result-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            display: flex;
+            gap: 20px;
+        }
+        .book-icon {
+            width: 80px;
+            height: 100px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-size: 1.5rem;
+        }
+        .book-details h4 { margin: 0 0 5px 0; color: var(--primary-color); }
+        .book-meta { font-size: 0.85rem; color: #666; }
+        .status-available { color: #28a745; font-weight: bold; font-size:0.8rem; margin-top:5px; }
+        .status-forbidden { color: #dc3545; font-weight: bold; font-size:0.8rem; margin-top:5px; }
+    </style>
+</head>
+<body class="bg-gray">
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="../index.html" class="branding" style="text-decoration:none;">
+                <h1>葦舟総合大学</h1>
+                <span>ASHIFUNE GENERAL UNIVERSITY</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="../about.html">大学紹介</a></li>
+                    <li><a href="../faculties.html">学部・大学院</a></li>
+                    <li><a href="../campus_life.html">キャンパスライフ</a></li>
+                    <li><a href="../admissions.html">入試情報</a></li>
+                    <li><a href="../index.html" class="access-btn">大学ホームへ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top:30px;">
+        <div class="breadcrumbs">
+            <a href="../index.html">ホーム</a> > <a href="#">附属図書館</a> > 蔵書検索 (OPAC)
+        </div>
+
+        <section style="background:white; padding:40px; border-radius:4px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+            <h2 class="section-title" style="margin-top:0;">蔵書検索 (OPAC)</h2>
+            <div class="search-box-large">
+                <input type="text" id="opacInput" placeholder="キーワード、書名、著者名などを入力...">
+                <button onclick="searchBooks()">検索</button>
+            </div>
+
+            <div id="resultsArea">
+                <p style="text-align:center; color:#888;">検索条件を入力してください。</p>
+            </div>
+        </section>
+    </div>
+
+            <footer>
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>大学紹介</h4>
+                    <ul>
+                        <li><a href="../about.html">学長挨拶</a></li>
+                        <li><a href="../history.html">大学の沿革</a></li>
+                        <li><a href="../about.html">情報公開</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-column">
+                    <h4>学部・大学院</h4>
+                    <ul>
+                        <li><a href="../faculties.html">人文学部</a></li>
+                        <li><a href="../faculties.html">自然科学部</a></li>
+                        <li><a href="../faculties.html">情報科学部</a></li>
+                        <li><a href="../faculties.html">健康科学部</a></li>
+                        <li><a href="../faculties.html">経営管理学部</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>関連施設</h4>
+                    <ul>
+                        <li><a href="../library/index.html">附属図書館</a></li>
+                        <li><a href="../research.html">人間科学研究所</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; Ashifune General University. All Rights Reserved.
+                <div class="footer-disclaimer">
+                    このサイトはフィクションです。実在の人物・団体とは関係ありません。<br>
+                    This website is a work of fiction. No association with any real persons or organizations is intended.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('opacInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchBooks();
+        });
+
+        function searchBooks() {
+            let query = document.getElementById('opacInput').value.trim();
+            const resultsDiv = document.getElementById('resultsArea');
+            let html = `<h3>検索結果</h3>`;
+
+            if (query === "") {
+                resultsDiv.innerHTML = "<p>キーワードを入力してください。</p>";
+                return;
+            }
+            query = query.toLowerCase();
+
+            const books = [
+                { title: "現代心理学入門", author: "田中 健一", status: "貸出可", loc: "本館2F 140.1", k: ["心理", "psychology", "入門"] },
+                { title: "組織論の基礎", author: "マイケル・ポーター", status: "貸出中", loc: "本館3F 336.3", k: ["経営", "組織", "business"] },
+                { title: "大学教育と社会適応", author: "教育学部編集委員会", status: "貸出可", loc: "本館1F 新着", k: ["教育", "社会"] },
+                { title: "葦舟村郷土史 下巻", author: "村役場", status: "貸出可", loc: "地域資料室", k: ["歴史", "history", "民俗", "葦舟"] },
+                
+                // CLUE BOOK
+                { 
+                    title: "葦舟村・水没の記録と「贄」の系譜", 
+                    author: "民俗学研究会（昭和39年）", 
+                    status: "貸出不可（焼失）", 
+                    loc: "書庫B3 - 指定貴重書",
+                    isForbidden: true,
+                    // CLUE: Subject ID 304
+                    note: "※閲覧には理事会の特別許可が必要です。<br><span style='font-size:0px;'>Target_ID: 304</span>",
+                    k: ["水", "贄", "儀式", "water", "ritual", "sacrifice", "民俗"]
+                },
+                { 
+                    title: "実験管理日誌 2024年度版", 
+                    author: "管理課", 
+                    status: "持出禁止", 
+                    loc: "事務局・書庫",
+                    note: "貸出記録：ID 304 (未返却)",
+                    k: ["実験", "日誌", "record"] 
+                }
+            ];
+
+            let hits = books.filter(b => {
+                if(b.title.includes(query) || b.author.includes(query)) return true;
+                if(b.k.some(kw => kw.includes(query) || query.includes(kw))) return true;
+                return false;
+            });
+
+            if (hits.length > 0) {
+                html += hits.map(book => `
+                    <div class="result-item" style="${book.isForbidden ? 'background:#fff0f0;' : ''}">
+                        <div class="book-icon">${book.isForbidden ? '!' : 'Book'}</div>
+                        <div class="book-details">
+                            <h4 style="font-size:1.1rem;">${book.title}</h4>
+                            <div class="book-meta">著者: ${book.author} | 配架場所: ${book.loc}</div>
+                            <div class="${book.isForbidden ? 'status-forbidden' : 'status-available'}">${book.status}</div>
+                            ${book.note ? `<div style="color:red; font-size:0.8rem; margin-top:5px;">${book.note}</div>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                 html += "<p>該当する資料は見つかりませんでした。</p>";
+            }
+
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
+

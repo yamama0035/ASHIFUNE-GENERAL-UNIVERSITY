@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <meta name="description" content="Web Horror Fiction Project">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学部・大学院 | 葦舟総合大学</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .faculty-card { background: white; padding: 30px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-top: 3px solid var(--primary-color); }
+        .syllabus-search { background:#f0f0f0; padding:20px; margin-top:30px; border-radius:4px; }
+        .calendar-table { width:100%; font-size:0.9rem; border-collapse:collapse; }
+        .calendar-table td { border-bottom:1px solid #ddd; padding:8px; }
+        .policy-block {
+            background: #f8f9fa;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-gray">
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="branding" style="text-decoration:none;">
+                <h1>葦舟総合大学</h1>
+                <span>ASHIFUNE GENERAL UNIVERSITY</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="about.html">大学紹介</a></li>
+                    <li><a href="faculties.html">学部・大学院</a></li>
+                    <li><a href="campus_life.html">キャンパスライフ</a></li>
+                    <li><a href="career.html">就職・キャリア</a></li>
+                    <li><a href="research.html">研究・社会連携</a></li>
+                    <li><a href="admissions.html">入試情報</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top:30px;">
+        <div class="breadcrumbs">
+            <a href="index.html">ホーム</a> > 学部・大学院
+        </div>
+
+        <h2 class="section-title">学部・大学院</h2>
+
+        <!-- Humanities -->
+        <div class="faculty-card">
+            <h3 style="color:var(--primary-color);">人文学部</h3>
+            <p>自我のメカニズムを解明し、より高次な精神状態への移行を目指す「人間改造」の最前線です。</p>
+            <h4>学科紹介</h4>
+            <ul>
+                <li><strong>自我心理学科</strong>: 「私」という概念の解体と再定義。</li>
+                <li><strong>集団行動学科</strong>: 群れとしての知性（Hive Mind）の研究。</li>
+                <li><strong>歴史民俗学科</strong>: 葦舟地方の「水」にまつわる伝承の研究。</li>
+            </ul>
+            <div class="policy-block">
+                <strong>ディプロマ・ポリシー</strong><br>
+                自我を客観視し、必要に応じてそれを抑制・消去できる能力。集団の中における自己の役割を正確に認識し、他者と同調する能力。
+            </div>
+        </div>
+
+        <!-- Natural Sciences -->
+        <div class="faculty-card">
+             <h3 style="color:var(--primary-color);">自然科学部</h3>
+             <p>生命現象を物質的な側面から解析し、その限界を超えるための技術開発を行います。</p>
+             <h4>学科紹介</h4>
+             <ul>
+                 <li><strong>応用生物学科</strong>: 水棲生物の生態研究。特殊環境下での生物の適応進化。</li>
+                 <li><strong>人体工学科</strong>: 四肢の換装技術および人工臓器の適合性試験。</li>
+                 <li><strong>薬理学科</strong>: 精神作用物質（試薬Xシリーズ等）の合成と臨床試験。</li>
+             </ul>
+             <div class="policy-block">
+                <strong>カリキュラム・ポリシー</strong><br>
+                1年次は徹底した動物実験を行い、生命に対する感傷を排除します。3年次以降は、独自の「検体」を用いた臨床実験に参加します。
+            </div>
+        </div>
+        
+        <!-- Info Science (NEW) -->
+        <div class="faculty-card">
+            <h3 style="color:var(--primary-color);">情報科学部 [NEW]</h3>
+            <p>高度化する監視社会において、膨大な行動データを処理し、社会の「安全」を維持するための技術を学びます。</p>
+            <h4>学科紹介</h4>
+            <ul>
+                <li><strong>行動データサイエンス学科</strong>: 学内の監視カメラ網から得られる生体データのリアルタイム解析。</li>
+                <li><strong>情報制御学科</strong>: 情報規制、検閲アルゴリズム、および思想ウイルスの検知技術。</li>
+            </ul>
+            <div class="policy-block">
+                <strong>アドミッション・ポリシー</strong><br>
+                情報の非対称性を理解し、管理者の視点から冷静に事象を分析できる者。秘密保持契約（NDA-Level 5）に同意できる者。
+            </div>
+        </div>
+
+        <!-- Health Sciences (NEW) -->
+        <div class="faculty-card">
+            <h3 style="color:var(--primary-color);">健康科学部 [NEW]</h3>
+            <p>損なわれた心身機能を回復させ、再び社会の構成要素として機能させるためのリハビリテーション科学です。</p>
+            <h4>学科紹介</h4>
+            <ul>
+                <li><strong>身体修復学科</strong>: 実験等で損傷した身体機能の代替・修復技術。</li>
+                <li><strong>栄養管理学科</strong>: 脳機能の維持に特化した流動食（Type-R等）の開発と管理。</li>
+            </ul>
+        </div>
+        
+        <!-- Management -->
+        <div class="faculty-card">
+             <h3 style="color:var(--primary-color);">経営管理学部</h3>
+             <p>組織を一つの巨大な生命体として捉え、その効率的な運営とリスク管理を学びます。</p>
+             <h4>学科紹介</h4>
+             <ul>
+                 <li><strong>組織統制学科</strong>: 上意下達システムの最適化、監視社会学。</li>
+                 <li><strong>危機管理学科</strong>: インシデント発生時の情報隠蔽、証拠隠滅のプロトコル作成。</li>
+             </ul>
+        </div>
+
+        <!-- Syllabus Search -->
+        <section style="background:white; padding:40px; margin-bottom:30px;">
+            <h3 class="section-title">講義概要（シラバス）</h3>
+            <!-- ... -->
+             <div class="syllabus-search">
+                <h4>シラバス検索</h4>
+                <div style="display:flex; gap:10px;">
+                    <input type="text" placeholder="科目名、教員名" style="flex:1; padding:10px;">
+                    <select style="padding:10px;">
+                        <option>2024年度</option>
+                    </select>
+                    <button style="background:var(--primary-color); color:white; border:none; padding:0 20px;">検索</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Calendar -->
+        <section style="background:white; padding:40px; margin-bottom:30px;">
+            <h3 class="section-title">学事日程（アカデミックカレンダー）</h3>
+            <table class="calendar-table">
+                <tr><td width="100">4月</td><td>入学式、オリエンテーション、健康診断</td></tr>
+                <tr><td>8月</td><td>夏季集中講義（B棟補習）</td></tr>
+                <tr><td>11月</td><td>調和祭（学園祭）</td></tr>
+                <tr><td>3月</td><td>卒業式（学位授与決定者のみ）</td></tr>
+            </table>
+        </section>
+
+    </div>
+
+            <footer>
+        <div class="container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>大学紹介</h4>
+                    <ul>
+                        <li><a href="about.html">学長挨拶</a></li>
+                        <li><a href="history.html">大学の沿革</a></li>
+                        <li><a href="about.html">情報公開</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-column">
+                    <h4>学部・大学院</h4>
+                    <ul>
+                        <li><a href="faculties.html">人文学部</a></li>
+                        <li><a href="faculties.html">自然科学部</a></li>
+                        <li><a href="faculties.html">情報科学部</a></li>
+                        <li><a href="faculties.html">健康科学部</a></li>
+                        <li><a href="faculties.html">経営管理学部</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>関連施設</h4>
+                    <ul>
+                        <li><a href="library/index.html">附属図書館</a></li>
+                        <li><a href="research.html">人間科学研究所</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; Ashifune General University. All Rights Reserved.
+                <div class="footer-disclaimer">
+                    このサイトはフィクションです。実在の人物・団体とは関係ありません。<br>
+                    This website is a work of fiction. No association with any real persons or organizations is intended.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

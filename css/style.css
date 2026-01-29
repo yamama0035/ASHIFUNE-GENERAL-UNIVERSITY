@@ -1,0 +1,312 @@
+/* Global Variables */
+:root {
+    --primary-color: #0d2847;
+    /* Deep Navy - Core Branding */
+    --hover-color: #004d99;
+    --accent-color: #bea761;
+    /* Gold */
+    --text-color: #333333;
+    --light-text: #666666;
+    --bg-color: #ffffff;
+    --section-bg: #f9f9f9;
+    --border-color: #e0e0e0;
+    --font-main: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Arial", sans-serif;
+    --font-mincho: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+/* =========================================
+   Top Bar & Header
+   ========================================= */
+.top-bar {
+    background-color: #f0f0f0;
+    font-size: 0.75rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.top-bar a {
+    color: #555;
+    text-decoration: none;
+}
+
+.top-bar a:hover {
+    color: var(--primary-color);
+}
+
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.branding {
+    display: flex;
+    flex-direction: column;
+}
+
+.branding h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: var(--primary-color);
+    font-family: var(--font-mincho);
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.branding span {
+    font-size: 0.7rem;
+    color: var(--light-text);
+    letter-spacing: 0.15em;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 10px 0;
+    position: relative;
+    text-decoration: none;
+    display: block;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.access-btn {
+    background: var(--primary-color);
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 4px;
+    text-decoration: none !important;
+}
+
+.access-btn:hover {
+    background: var(--hover-color);
+}
+
+.access-btn::after {
+    display: none;
+}
+
+/* =========================================
+   Layout Util
+   ========================================= */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.breadcrumbs {
+    background: #f4f4f4;
+    padding: 10px 0;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.breadcrumbs a {
+    color: #666;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   Hero & Sections
+   ========================================= */
+.hero {
+    background: url('../images/hero_bg.jpg') no-repeat center center/cover;
+    background-color: var(--primary-color);
+    /* Fallback */
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 40, 71, 0.7);
+    /* Overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-family: var(--font-mincho);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-family: var(--font-mincho);
+}
+
+section {
+    padding: 60px 0;
+}
+
+.bg-gray {
+    background-color: var(--section-bg);
+}
+
+/* =========================================
+   Lists & Tables
+   ========================================= */
+.news-list {
+    border-top: 2px solid var(--primary-color);
+}
+
+.news-item {
+    display: flex;
+    align-items: baseline;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-date {
+    font-family: 'Georgia', serif;
+    color: #666;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 50px 0 20px;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-column h4 {
+    border-bottom: 1px solid #557799;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column a {
+    color: #ccc;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #557799;
+    padding-top: 20px;
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+/* =========================================
+   Horror & Specimen
+   ========================================= */
+.hidden-layer {
+    opacity: 0;
+    transition: opacity 1s;
+    pointer-events: none;
+    position: absolute;
+}
+
+.reveal-horror {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.footer-disclaimer {
+    font-size: 0.7rem;
+    color: #445566;
+    /* Low contrast for unobtrusiveness */
+    margin-top: 20px;
+    opacity: 0.7;
+}
